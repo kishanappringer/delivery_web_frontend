@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  MessageInput,
-} from "@chatscope/chat-ui-kit-react";
+// import {
+//   MainContainer,
+//   ChatContainer,
+//   MessageList,
+//   MessageInput,
+// } from "@chatscope/chat-ui-kit-react";
 import Channel from "./channel";
 import {
   addMessage,
@@ -78,8 +78,8 @@ export default function Chat() {
         isShop
           ? item.roleId == shopId
           : isOrder
-          ? item.roleId == roleId
-          : item.roleId == "admin"
+            ? item.roleId == roleId
+            : item.roleId == "admin"
       );
     handleChat(myChat);
   }, [chats]);
@@ -139,58 +139,59 @@ export default function Chat() {
   };
 
   return (
-    <div className="chat-drawer">
-      <div className="header">
-        <h3 className="title">{t("help.center")}</h3>
-      </div>
-      <div className="chat-wrapper">
-        <input
-          type="file"
-          ref={nextRef}
-          onChange={handleFile}
-          accept="image/jpg, image/jpeg, image/png, image/svg+xml, image/svg"
-          className="d-none"
-        />
-        <MainContainer responsive className="chat-container rounded">
-          <ChatContainer className="chat-container">
-            <MessageList className="message-list">
-              <Channel
-                groupMessages={groupMessages}
-                messageEndRef={messageEndRef}
-              />
-            </MessageList>
-            <MessageInput
-              ref={inputRef}
-              value={newMessage}
-              onChange={handleOnChange}
-              onSend={handleOnSubmit}
-              placeholder={t("message")}
-              className="chat-input"
-              attachButton={true}
-              onAttachClick={onAttachClick}
-            />
-          </ChatContainer>
-        </MainContainer>
-        {isDesktop ? (
-          <ModalContainer open={modal} onClose={handleCloseModal}>
-            <UploadMedia
-              url={url}
-              file={file}
-              handleOnSubmit={handleOnSubmit}
-              handleClose={handleCloseModal}
-            />
-          </ModalContainer>
-        ) : (
-          <MobileDrawer open={modal} onClose={handleCloseModal}>
-            <UploadMedia
-              url={url}
-              file={file}
-              handleOnSubmit={handleOnSubmit}
-              handleClose={handleCloseModal}
-            />
-          </MobileDrawer>
-        )}
-      </div>
-    </div>
+    <></>
+    // <div className="chat-drawer">
+    //   <div className="header">
+    //     <h3 className="title">{t("help.center")}</h3>
+    //   </div>
+    //   <div className="chat-wrapper">
+    //     <input
+    //       type="file"
+    //       ref={nextRef}
+    //       onChange={handleFile}
+    //       accept="image/jpg, image/jpeg, image/png, image/svg+xml, image/svg"
+    //       className="d-none"
+    //     />
+    //     <MainContainer responsive className="chat-container rounded">
+    //       <ChatContainer className="chat-container">
+    //         <MessageList className="message-list">
+    //           <Channel
+    //             groupMessages={groupMessages}
+    //             messageEndRef={messageEndRef}
+    //           />
+    //         </MessageList>
+    //         <MessageInput
+    //           ref={inputRef}
+    //           value={newMessage}
+    //           onChange={handleOnChange}
+    //           onSend={handleOnSubmit}
+    //           placeholder={t("message")}
+    //           className="chat-input"
+    //           attachButton={true}
+    //           onAttachClick={onAttachClick}
+    //         />
+    //       </ChatContainer>
+    //     </MainContainer>
+    //     {isDesktop ? (
+    //       <ModalContainer open={modal} onClose={handleCloseModal}>
+    //         <UploadMedia
+    //           url={url}
+    //           file={file}
+    //           handleOnSubmit={handleOnSubmit}
+    //           handleClose={handleCloseModal}
+    //         />
+    //       </ModalContainer>
+    //     ) : (
+    //       <MobileDrawer open={modal} onClose={handleCloseModal}>
+    //         <UploadMedia
+    //           url={url}
+    //           file={file}
+    //           handleOnSubmit={handleOnSubmit}
+    //           handleClose={handleCloseModal}
+    //         />
+    //       </MobileDrawer>
+    //     )}
+    //   </div>
+    // </div>
   );
 }
