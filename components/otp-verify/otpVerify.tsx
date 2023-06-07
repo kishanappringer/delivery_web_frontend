@@ -2,7 +2,7 @@ import { error, success } from "components/alert/toast";
 import PrimaryButton from "components/button/primaryButton";
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
-import OtpInput from "react-otp-input";
+// import OtpInput from "react-otp-input";
 import authService from "services/auth";
 import cls from "./otpVerify.module.scss";
 import { Stack } from "@mui/material";
@@ -100,56 +100,57 @@ export default function OTPVerify({
   }, []);
 
   return (
-    <form className={cls.wrapper} onSubmit={formik.handleSubmit}>
-      <div className={cls.header}>
-        <h1 className={cls.title}>
-          {email.includes("@") ? t("verify.email") : t("verify.phone")}
-        </h1>
-        <p className={cls.text}>
-          {t("verify.text")} <i>{email}</i>
-        </p>
-      </div>
-      <div className={cls.space} />
-      <Stack spacing={2}>
-        <OtpInput
-          numInputs={6}
-          inputStyle={cls.input}
-          isInputNum
-          containerStyle={cls.otpContainer}
-          value={formik.values.verifyId?.toString()}
-          onChange={(otp: any) => formik.setFieldValue("verifyId", otp)}
-        />
-        <p className={cls.text}>
-          {t("verify.didntRecieveCode")}{" "}
-          {time === 0 ? (
-            isResending ? (
-              <span className={cls.text} style={{ opacity: 0.5 }}>
-                Sending...
-              </span>
-            ) : (
-              <span
-                id="sign-in-button"
-                onClick={handleResendCode}
-                className={cls.resend}
-              >
-                {t("resend")}
-              </span>
-            )
-          ) : (
-            <span className={cls.text}>{time} s</span>
-          )}
-        </p>
-      </Stack>
-      <div className={cls.space} />
-      <div className={cls.action}>
-        <PrimaryButton
-          type="submit"
-          disabled={Number(formik?.values?.verifyId?.toString()?.length) < 6}
-          loading={formik.isSubmitting}
-        >
-          {t("verify")}
-        </PrimaryButton>
-      </div>
-    </form>
+    <></>
+    // <form className={cls.wrapper} onSubmit={formik.handleSubmit}>
+    //   <div className={cls.header}>
+    //     <h1 className={cls.title}>
+    //       {email.includes("@") ? t("verify.email") : t("verify.phone")}
+    //     </h1>
+    //     <p className={cls.text}>
+    //       {t("verify.text")} <i>{email}</i>
+    //     </p>
+    //   </div>
+    //   <div className={cls.space} />
+    //   <Stack spacing={2}>
+    //     <OtpInput
+    //       numInputs={6}
+    //       inputStyle={cls.input}
+    //       isInputNum
+    //       containerStyle={cls.otpContainer}
+    //       value={formik.values.verifyId?.toString()}
+    //       onChange={(otp: any) => formik.setFieldValue("verifyId", otp)}
+    //     />
+    //     <p className={cls.text}>
+    //       {t("verify.didntRecieveCode")}{" "}
+    //       {time === 0 ? (
+    //         isResending ? (
+    //           <span className={cls.text} style={{ opacity: 0.5 }}>
+    //             Sending...
+    //           </span>
+    //         ) : (
+    //           <span
+    //             id="sign-in-button"
+    //             onClick={handleResendCode}
+    //             className={cls.resend}
+    //           >
+    //             {t("resend")}
+    //           </span>
+    //         )
+    //       ) : (
+    //         <span className={cls.text}>{time} s</span>
+    //       )}
+    //     </p>
+    //   </Stack>
+    //   <div className={cls.space} />
+    //   <div className={cls.action}>
+    //     <PrimaryButton
+    //       type="submit"
+    //       disabled={Number(formik?.values?.verifyId?.toString()?.length) < 6}
+    //       loading={formik.isSubmitting}
+    //     >
+    //       {t("verify")}
+    //     </PrimaryButton>
+    //   </div>
+    // </form>
   );
 }

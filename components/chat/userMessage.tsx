@@ -1,6 +1,6 @@
 import React from "react";
 import CheckDoubleLineIcon from "remixicon-react/CheckDoubleLineIcon";
-import { Message } from "@chatscope/chat-ui-kit-react";
+// import { Message } from "@chatscope/chat-ui-kit-react";
 import dayjs from "dayjs";
 
 type Props = {
@@ -18,7 +18,7 @@ export default function UserMessage({
 }: Props) {
   return (
     <div className="user-sms-wrapper">
-      <div className={`user-message ${chat_img && "chat-image"}`}>
+      {/* <div className={`user-message ${chat_img && "chat-image"}`}>
         {chat_img && (
           <Message
             type="image"
@@ -39,7 +39,7 @@ export default function UserMessage({
         <span className="double-check">
           {status === "pending" ? "" : <CheckDoubleLineIcon size={16} />}
         </span>
-      </div>
+      </div> */}
     </div>
   );
 }
